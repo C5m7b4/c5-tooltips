@@ -42,3 +42,60 @@ body {
   font-weight: 600;
   padding-top: 25px;
 }
+
+.content {
+  padding: 50px;
+}
+
+.demo {
+  width: 100%;
+  text-align: center;
+}
+
+.demo ul {
+  list-style-type: none;
+}
+
+.demo li {
+  text-decoration: none;
+}
+
+.controls {
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.controls label {
+  margin-right: 7px;
+}
+
+.controls input {
+  margin-right: 15px;
+}
+
+.normal {
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.normal button {
+  padding: 4px 8px;
+  border-radius: 10px;
+  border: 0;
+  outline: none;
+  margin-top: 8px;
+  text-transform: capitalize;
+}
+
+.delay {
+  margin-top: 20px;
+}
+
+.delay input {
+  padding: 4px 7px;
+  border-radius: 10px;
+  border: 0;
+  outline: 0;
+}

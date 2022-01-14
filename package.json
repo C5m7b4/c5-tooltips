@@ -13,8 +13,8 @@
     "build:watch": "rollup -c --watch",
     "test": "jest",
     "test:watch": "jest --watch",
-    "bundle:sass": "sass scss/main.scss dist/css/c5-toastify.css",
-    "minify": "postcss dist/css/c5-toastify.css > dist/css/c5-toastify.min.css",
+    "bundle:sass": "sass scss/main.scss dist/css/c5-tooltip.css",
+    "minify": "postcss dist/css/c5-tooltip.css > dist/css/c5-tooltip.min.css",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet"
   },
   "keywords": [],
