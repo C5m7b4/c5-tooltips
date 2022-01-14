@@ -45,7 +45,7 @@ export const Demo: React.FC = () => {
 
         <div className="normal">
           <h3>Normal tooltip example</h3>
-          <Tooltip content="hello" direction="right">
+          <Tooltip content="hello" direction="right" delay={400}>
             <button>Im a button</button>
           </Tooltip>
         </div>
