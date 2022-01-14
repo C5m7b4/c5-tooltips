@@ -99,3 +99,21 @@ body {
   border: 0;
   outline: 0;
 }
+
+.advanced {
+  width: 100%;
+  text-align: center;
+  margin-top: 35px;
+}
+
+.advanced ul {
+  list-style-type: none;
+}
+
+.advanced button {
+  margin: 10px 10px;
+  border-radius: 10px;
+  padding: 4px 8px;
+  outline: none;
+  border: 0;
+}
