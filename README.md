@@ -11,9 +11,11 @@ To install
 usage:
 
 ```js
+import { ToolTipController } from 'c5-tooltips';
+
 <ToolTipController>
   <button tool-tip="Here is my tooltip">Click me</button>
-</ToolTipController>
+</ToolTipController>;
 ```
 
 Directions: top, bottom, right, left;
@@ -55,4 +57,14 @@ const ComplexComponent = () => {
     This div should show a complex component
   </div>
 </ToolTipController>;
+```
+
+You can also just cherry pick the Tooltip Component and use it stand alone
+
+```js
+import { Tooltip } from 'c5-tooltips';
+
+<Tooltip content="Here is my tooltip content" direction="right" delay={400}>
+  <button>Im a button</button>
+</Tooltip>;
 ```
