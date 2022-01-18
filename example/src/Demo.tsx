@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ToolTipController, Tooltip } from '../../src';
+import ToolTipController, { Tooltip } from '../../src';
 import { Direction } from '../../src';
 
 import '../../dist/css/c5-tooltip.css';
