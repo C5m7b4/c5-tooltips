@@ -5,7 +5,7 @@ import { Portal } from '../../components';
 import { ControllerProps, Coords } from '../../interfaces';
 import { Tooltip } from '../../components';
 
-export const ToolTipController: React.FC<ControllerProps> = ({
+const ToolTipController: React.FC<ControllerProps> = ({
   children,
   direction = 'top',
   delay = '400',
@@ -92,3 +92,5 @@ export const ToolTipController: React.FC<ControllerProps> = ({
     </React.Fragment>
   );
 };
+
+export default ToolTipController;

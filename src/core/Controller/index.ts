@@ -1,1 +1,1 @@
-export * from './ToolTipController';
+export { default } from './ToolTipController';
