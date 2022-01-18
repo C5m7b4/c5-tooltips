@@ -1,53 +1,52 @@
-import resolve from '@rollup/plugin-node-resolve';
-import commonjs from '@rollup/plugin-commonjs';
-import typescript from '@rollup/plugin-typescript';
-import dts from 'rollup-plugin-dts';
-import postcss from 'rollup-plugin-postcss';
+import typescript from 'rollup-plugin-typescript2';
+import commonjs from 'rollup-plugin-commonjs';
+import external from 'rollup-plugin-peer-deps-external';
+import resolve from 'rollup-plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
-import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import postcss from 'rollup-plugin-postcss';
 
-const packageJson = require('./package.json');
+import pkg from './package.json';
 
-export default [
-  {
-    input: 'src/index.ts',
-    external: ['react', 'react-dom'],
-    output: [
-      {
-        file: packageJson.main,
-        format: 'cjs',
-        sourcemap: true,
-      },
-      {
-        file: packageJson.module,
-        format: 'esm',
-        sourcemap: true,
-      },
-    ],
-    plugins: [
-      peerDepsExternal(),
-      resolve(),
-      commonjs(),
-      typescript({
-        tsconfig: './tsconfig.json',
-        exclude: [
-          '**/tests',
-          '**/*.test.ts',
-          '**/*.test.tsx',
-          '**/example/*.*',
-          '**__mocks__/*.*',
-          '**/settings/*.*',
-          '**/scss/*.*',
+export default {
+  input: 'src/index.ts',
+  output: [
+    {
+      file: pkg.main,
+      format: 'cjs',
+      exports: 'named',
+      sourcemap: false,
+    },
+    {
+      file: pkg.module,
+      format: 'es',
+      exports: 'named',
+      sourcemap: false,
+    },
+  ],
+  plugins: [
+    external(),
+    resolve({
+      browser: true,
+    }),
+    typescript({
+      useTsconfigDeclarationDir: true,
+      rollupCommonJSResolveHack: true,
+      exclude: '**/__tests__/**',
+      clean: true,
+    }),
+    commonjs({
+      include: ['node_modules/**'],
+      namedExports: {
+        'node_modules/react/react.js': [
+          'Children',
+          'Component',
+          'PropTypes',
+          'createElement',
         ],
-      }),
-      postcss(),
-      terser(),
-    ],
-  },
-  {
-    input: 'dist/esm/types/index.d.ts',
-    output: [{ file: 'dist/index.d.ts', format: 'esm' }],
-    plugins: [dts()],
-    external: [/\.css$/],
-  },
-];
+        'node_modules/react-dom/index.js': ['render'],
+      },
+    }),
+    postcss(),
+    terser(),
+  ],
+};
