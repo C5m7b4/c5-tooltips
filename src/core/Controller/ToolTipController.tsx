@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { extractType, extractDisplayName, hasTooltip } from '../../utils';
+import { extractType, hasTooltip } from '../../utils';
 import { useTooltipController } from '../../hooks';
 import { Portal } from '../../components';
 import { ControllerProps, Coords } from '../../interfaces';
@@ -73,13 +73,15 @@ const ToolTipController: React.FC<ControllerProps> = ({
         } else {
           return React.cloneElement(child as React.ReactElement);
         }
+      } else {
+        return React.cloneElement(child as React.ReactElement);
       }
     }
   );
   return (
     <React.Fragment>
       {inputChildren}
-      {isOpen && (
+      {isOpen && loaded && (
         <Portal id={portalId} coords={coords}>
           <Tooltip
             direction={direction}
