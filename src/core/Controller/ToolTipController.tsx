@@ -24,22 +24,38 @@ const ToolTipController: React.FC<ControllerProps> = ({
     const rect = e.target!.getBoundingClientRect();
     let x: number = e.clientX;
     let y: number = e.clientY;
+    if (e.view) {
+      y = e.clientY + e.view.scrollY;
+    }
+
     switch (direction) {
       case 'top':
         x = e.clientX + 100;
         y = e.clientY - rect.height;
+        if (e.view) {
+          y = e.clientY - rect.height + e.view.scrollY;
+        }
         break;
       case 'bottom':
         x = e.clientX + 100;
         y = e.clientY + rect.height;
+        if (e.view) {
+          y = e.clientY + rect.height + e.view.scrollY;
+        }
         break;
       case 'left':
         x = e.clientX + 100;
         y = e.clientY;
+        if (e.view) {
+          y = e.clientY + e.view.scrollY;
+        }
         break;
       case 'right':
         x = e.clientX + 100;
         y = e.clientY;
+        if (e.view) {
+          y = e.clientY + e.view.scrollY;
+        }
         break;
       default:
       // do nothing
