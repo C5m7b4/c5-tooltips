@@ -11,7 +11,8 @@ To install
 usage:
 
 ```js
-import { ToolTipController } from 'c5-tooltips';
+import ToolTipController from 'c5-tooltips';
+import '../node_modules/c5-tooltips/dist/css/c5-tooltip.min.css';
 
 <ToolTipController>
   <button tool-tip="Here is my tooltip">Click me</button>
