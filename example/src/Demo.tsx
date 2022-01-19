@@ -120,6 +120,12 @@ export const Demo: React.FC = () => {
           </div>
         </div>
       </div>
+      <div className="vertical-spacer"></div>
+      <div>
+        <ToolTipController>
+          <p tool-tip="Here is my tooltip">Here is some text</p>
+        </ToolTipController>
+      </div>
     </div>
   );
 };
